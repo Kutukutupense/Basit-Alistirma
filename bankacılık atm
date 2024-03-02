@@ -1,0 +1,80 @@
+namespace bankaislemleri2
+{
+    class Program
+    {
+        class hesap
+        {
+            private double Bakiye = 0;
+            public double Yatir(double ParaYatir)
+            {
+                Bakiye += ParaYatir;
+                Console.WriteLine("Yatırma Miktariniz:"+ " " + ParaYatir);
+                Console.WriteLine("Güncel Bakiyeniz:"+ " " + Bakiye);
+                return Bakiye;
+            }
+            public double Cek(double ParaCek)
+            {
+                Bakiye -= ParaCek;
+                Console.WriteLine("Çekme Miktariniz:" + " " + ParaCek);
+                Console.WriteLine("Güncel Bakiyeniz:" + " " + Bakiye);
+                return Bakiye;
+            }
+            public void BakiyeSorgula()
+            {
+                Console.WriteLine("Güncel Bakiyeniz:" + Bakiye);
+            }
+        }
+        static void Main(string[] args)
+        {
+            hesap h1 = new hesap();
+            while (true)
+            {
+
+
+                Console.WriteLine("Gölge Bank'a Hoş Geldiniz! Lütfen Yapmak İstediğiniz İşlemi Belirtin");
+                Console.WriteLine();
+                Console.WriteLine("Para Yatırmak İçin: 1");
+                Console.WriteLine();
+                Console.WriteLine("Para Çekmek İçin: 2");
+                Console.WriteLine();
+                Console.WriteLine("Bakiye Sorgulamak İçin: 3");
+                Console.WriteLine();
+                Console.WriteLine("Çıkış Yapmak İçin: 4");
+                Console.WriteLine( );
+                
+
+                int islem = Convert.ToInt32(Console.ReadLine());
+                switch (islem)
+                {
+                    case 1:
+                        Console.WriteLine("Lütfen Yatırmak İstediğiniz Miktarı Girin");
+                        double YatirilanMiktar = Convert.ToDouble(Console.ReadLine());
+                        h1.Yatir(YatirilanMiktar);
+                        break;
+                    case 2:
+
+                        Console.WriteLine("Lütfen Çekmek İstediğiniz Miktarı Girin");
+                        double CekilenMiktar = Convert.ToDouble(Console.ReadLine());
+                        h1.Cek(CekilenMiktar);
+                        break;
+                    case 3:
+                        h1.BakiyeSorgula();
+
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Çıkış Başarı İle Yapıldı");
+                        return;
+
+                    default:
+                        Console.WriteLine("Geçersiz Bir Numara Girdiniz");
+                        break;
+
+
+                }
+                
+            }
+            
+        }
+    }
+}
